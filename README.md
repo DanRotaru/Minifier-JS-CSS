@@ -36,6 +36,7 @@ Minifier::minifyDir("public/css/all.css", "/public/css/");
 
 ## Also you can only generate minified output
 ```php
+// Get file content
 $content = file_get_contents("public/js/app.js");
 
 // Get minified content get($content, $language = "js" || "css")

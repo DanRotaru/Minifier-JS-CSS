@@ -26,8 +26,6 @@ Ex: You have 4 files: header.js, main.js, function.js, footer.js
 You can minify all and unite them in one: **all.js**
 In output will be created minified file all.js that will contain all these files.
 ```php
-require "minifier.class.php";
-
 // Minify all files with .js extension from directory /public/js/
 Minifier::minifyDir("public/js/all.js", "/public/js/");
 

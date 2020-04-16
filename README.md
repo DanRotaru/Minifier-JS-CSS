@@ -26,13 +26,14 @@ Ex: You have 4 files: header.js, main.js, function.js, footer.js
 You can minify all and unite them in one: **all.js**
 In output will be created minified file all.js that will contain all these files.
 ```php
-// Minify all files with .js extension from directory /public/js/
-Minifier::minifyDir("public/js/all.js", "/public/js/");
+// Minify all files with .js extension from directory /public/js/components/ into file /public/js/all.js
+Minifier::minifyDir("public/js/all.js", "/public/js/components");
 
-// Minify all files with .css extension from directory /public/css/
-Minifier::minifyDir("public/css/all.css", "/public/css/");
+// Minify all files with .css extension from directory /public/css/components/ into file /public/css/all.css
+Minifier::minifyDir("public/css/all.css", "/public/css/components/");
 
 ```
+![minifyAllFiles](https://i.ibb.co/XWYCkGD/Screenshot-4.png}
 
 ## Also you can only generate minified output
 ```php

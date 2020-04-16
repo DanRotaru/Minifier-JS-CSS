@@ -33,7 +33,7 @@ Minifier::minifyDir("public/js/all.js", "/public/js/components");
 Minifier::minifyDir("public/css/all.css", "/public/css/components/");
 
 ```
-![minifyAllFiles](https://i.ibb.co/XWYCkGD/Screenshot-4.png}
+![minifyAllFiles](https://i.ibb.co/XWYCkGD/Screenshot-4.png)
 
 ## Also you can only generate minified output
 ```php

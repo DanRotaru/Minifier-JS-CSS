@@ -2,7 +2,7 @@
 
 ## Description
 With this plugin, you can minify you js's and css's via PHP providing input and output path's.
-Also you can minify and unite all your code in one file.
+Also you can minify and merge all your code in one file.
 This scripts are using Andy Chilton API's.
 
 ## Setup
@@ -21,9 +21,9 @@ Minifier::minifyFile("public/css/app.css", "public/css/app.min.css");
 ```
 
 ## Minify all files by extension
-You also can minify all files by extension, you can minify all and unite them in one.
+You also can minify all files by extension, you can minify all and merge them in one.
 Ex: You have 4 files: header.js, main.js, function.js, footer.js
-You can minify all and unite them in one: **all.js**
+You can minify all and merge them in one: **all.js**
 In output will be created minified file all.js that will contain all these files.
 ```php
 // Minify all files with .js extension from directory /public/js/components/ into file /public/js/all.js

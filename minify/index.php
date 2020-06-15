@@ -1,5 +1,4 @@
 <?php
-
 $mainFolder = 'minify';
 
 include $_SERVER['DOCUMENT_ROOT'].'/'.$mainFolder.'/files.php';
@@ -98,7 +97,7 @@ if(isset($_GET['i'])){
             </div>
             <?php
             for($i = 0; $i <= count($myFiles); $i++){
-                if(!empty($myFiles[$i][1]) && !empty(pathinfo($myFiles[$i][0], PATHINFO_EXTENSION))){
+                if(!empty($myFiles[$i][1])){
                     echo '
                     <div class="item">
                         <a title="Open" href="'.$myFiles[$i][1].'" target="_blank">'.$myFiles[$i][1].'</a>

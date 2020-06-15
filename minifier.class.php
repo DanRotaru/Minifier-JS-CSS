@@ -19,6 +19,7 @@ class Minifier {
 
         if($lang == "js") $url = "https://javascript-minifier.com/raw";
         else if($lang == "html") $url = "https://html-minifier.com/raw";
+        else $url = "https://cssminifier.com/raw";
 
         $postdata = array('http' => array(
             'method'  => 'POST',
@@ -32,31 +33,40 @@ class Minifier {
             DEFAULT STATE: Minify JavaScript file
             DESCRIPTION: Function to minify file
         */
+
+        $filename = $_SERVER['DOCUMENT_ROOT'].$filename;
+        $saveToFile = $_SERVER['DOCUMENT_ROOT'].$saveToFile;
         
         if(!file_exists($filename)) die("File ".$filename." doesn't exist!");
         $ext = pathinfo($filename, PATHINFO_EXTENSION);
         $fp = fopen($saveToFile, 'w');
         fwrite($fp, self::get(file_get_contents($filename), $ext));
         fclose($fp);
-        echo "File <a href='".$saveToFile."'>".$saveToFile."</a> was successfully minified!";
+        return 1;
     }
 
-    public static function minifyDir($saveToFile, $dirName){
+    public static function minifyDir($dirName, $saveToFile){
         /* 
             DEFAULT STATE: Get all files by extension and minify it
             $dirName => /dirExample/
             $ext => "js" || "css"
         */
+
+        $saveToFile = $_SERVER['DOCUMENT_ROOT'].$saveToFile;
         
-        if(!file_exists($saveToFile)) return "File doesn't exist!";
+        
         $ext = pathinfo($saveToFile, PATHINFO_EXTENSION);
-        
+
+
         //Message that will be shown to top file
         $msg = ' APP CREATED BY DanRotaru ';
         $msg = '/* '.$msg.' */';
+        if(!empty($msg)) $res1 = $msg."\n\n";
 
-        $files = scandir(dirname( __FILE__ ) . $dirName);
         
+        $files = scandir($_SERVER['DOCUMENT_ROOT'].$dirName);
+        // return $files;
+
         $res = '';
         foreach($files as $filename){
             if(strpos($filename,'.'.$ext) && $filename !== basename($saveToFile)){
@@ -64,7 +74,6 @@ class Minifier {
             }
         }
 
-        $res1 = $msg."\n\n";
         $res1 .= self::get($res, $ext);
         $fp = fopen($saveToFile, 'w');fwrite($fp, $res1);fclose($fp);
 

@@ -1,7 +1,7 @@
 # Dashbard Example
 
 Here you can see dashboard example
-![dashboard](https://i.ibb.co/p3WGtHf/image.png)
+![dashboard](https://i.ibb.co/NZq0cWP/image.png)
 
 ## Setup
 Setup is very simple:

@@ -27,10 +27,10 @@ You can minify all and merge them in one: **all.js**
 In output will be created minified file all.js that will contain all these files.
 ```php
 // Minify all files with .js extension from directory /public/js/components/ into file /public/js/all.js
-Minifier::minifyDir("public/js/all.js", "/public/js/components");
+Minifier::minifyDir("/public/js/components", "public/js/all.js");
 
 // Minify all files with .css extension from directory /public/css/components/ into file /public/css/all.css
-Minifier::minifyDir("public/css/all.css", "/public/css/components/");
+Minifier::minifyDir("/public/css/components/", "public/css/all.css");
 
 ```
 ![minifyAllFiles](https://i.ibb.co/ZhqTV34/screen.png)

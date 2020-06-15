@@ -10,18 +10,15 @@ if(isset($_GET['i'])){
     //Shortcuts
     for($i = 0; $i <= count($myFiles); $i++){
         if(!empty($myFiles[$i][0]) && !empty($myFiles[$i][2]) && $_GET['i'] == $myFiles[$i][2]){
-            $_GET['i'] = $myFiles[$i][0];
-            $_GET['o'] = $myFiles[$i][2];
-            
-            if(empty(pathinfo($_GET['i'], PATHINFO_EXTENSION))){
-                if(Minifier::minifyDir($_GET['i'], $myFiles[$i][1])){
-                    echo('Folder '.$_GET['i'].' was successfully minified to `'.$myFiles[$i][1].'`');
+            if(empty(pathinfo($myFiles[$i][0], PATHINFO_EXTENSION))){
+                if(Minifier::minifyDir($myFiles[$i][0], $myFiles[$i][1])){
+                    echo('Folder '.$myFiles[$i][0].' was successfully minified to `'.$myFiles[$i][1].'`');
                     exit;
                 }
             }
             else{
-                if(Minifier::minifyFile($_GET['i'], $myFiles[$i][1])){
-                    echo('File `'.$_GET['i'].'` was successfully minified to `'.$myFiles[$i][1].'`');
+                if(Minifier::minifyFile($myFiles[$i][0], $myFiles[$i][1])){
+                    echo('File `'.$myFiles[$i][0].'` was successfully minified to `'.$myFiles[$i][1].'`');
                     exit;
                 }
             }

@@ -8,6 +8,7 @@ Setup is very simple:
 1) Open "index.php" and edit $mainFolder variable to your folder path
 2) Add, remove files in "files.php": 
 ["filename or folder", "output filename", "shortcut (if you want to add it to dashboard)"]
+
 ```php
 $myFiles = [
     ["/minify/js/index.js", "/minify/js/index.min.js", "js"],
@@ -16,4 +17,12 @@ $myFiles = [
     ["/minify/js/user_scripts/", "/minify/js/user_scripts.js", "user_js_scripts"],
     ["/minify/css/user_scripts/", "/minify/css/user_scripts.css", "user_css_scripts"]
 ];
-``
+
+```
+
+## Or directly minify files/folders
+Just needed to open
+```
+/index.php?i=INPUT_FILE/FOLDER&o=OUTPUT_FILE/FOLDER
+
+```

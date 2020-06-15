@@ -13,10 +13,10 @@ require "minifier.class.php";
 
 ```php
 // Minify JS code
-Minifier::minifyFile("public/js/app.js", "public/js/app.min.js");
+Minifier::minifyFile("/public/js/app.js", "/public/js/app.min.js");
 
 // Minify CSS code
-Minifier::minifyFile("public/css/app.css", "public/css/app.min.css");
+Minifier::minifyFile("/public/css/app.css", "/public/css/app.min.css");
 
 ```
 
@@ -27,10 +27,10 @@ You can minify all and merge them in one: **all.js**
 In output will be created minified file all.js that will contain all these files.
 ```php
 // Minify all files with .js extension from directory /public/js/components/ into file /public/js/all.js
-Minifier::minifyDir("/public/js/components", "public/js/all.js");
+Minifier::minifyDir("/public/js/components", "/public/js/all.js");
 
 // Minify all files with .css extension from directory /public/css/components/ into file /public/css/all.css
-Minifier::minifyDir("/public/css/components/", "public/css/all.css");
+Minifier::minifyDir("/public/css/components/", "/public/css/all.css");
 
 ```
 ![minifyAllFiles](https://i.ibb.co/ZhqTV34/screen.png)
@@ -38,7 +38,7 @@ Minifier::minifyDir("/public/css/components/", "public/css/all.css");
 ## Also you can only generate minified output
 ```php
 // Get file content
-$content = file_get_contents("public/js/app.js");
+$content = file_get_contents("/public/js/app.js");
 
 // Get minified content get($content, $language = "js" || "css")
 $minfied = Minifier::get($content, "js");

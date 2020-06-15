@@ -6,27 +6,23 @@ if(isset($_GET['i'])){
     if(empty($_GET['i'])) die("Please, choose a file!");
 
     require $_SERVER['DOCUMENT_ROOT'].'/'.$mainFolder.'/minifier.class.php';
-    require $_SERVER['DOCUMENT_ROOT'].'/'.$mainFolder.'/files.php';
 
     //Shortcuts
     for($i = 0; $i <= count($myFiles); $i++){
-        if(!empty($myFiles[$i][0]) && !empty($myFiles[$i][2])){
-            if($_GET['i'] == $myFiles[$i][2]){
-
-                $_GET['i'] = $myFiles[$i][0];
-                $_GET['o'] = $myFiles[$i][2];
-                
-                if(empty(pathinfo($_GET['i'], PATHINFO_EXTENSION))){
-                    if(Minifier::minifyDir($_GET['i'], $_GET['o'])){
-                        echo('Folder '.$_GET['i'].' was successfully minified to `'.$myFiles[$i][1].'`');
-                        exit;
-                    }
+        if(!empty($myFiles[$i][0]) && !empty($myFiles[$i][2]) && $_GET['i'] == $myFiles[$i][2]){
+            $_GET['i'] = $myFiles[$i][0];
+            $_GET['o'] = $myFiles[$i][2];
+            
+            if(empty(pathinfo($_GET['i'], PATHINFO_EXTENSION))){
+                if(Minifier::minifyDir($_GET['i'], $myFiles[$i][1])){
+                    echo('Folder '.$_GET['i'].' was successfully minified to `'.$myFiles[$i][1].'`');
+                    exit;
                 }
-                else{
-                    if(Minifier::minifyFile($_GET['i'], $_GET['o'])){
-                        echo('File `'.$_GET['i'].'` was successfully minified to `'.$myFiles[$i][1].'`');
-                        exit;
-                    }
+            }
+            else{
+                if(Minifier::minifyFile($_GET['i'], $myFiles[$i][1])){
+                    echo('File `'.$_GET['i'].'` was successfully minified to `'.$myFiles[$i][1].'`');
+                    exit;
                 }
             }
         }
@@ -98,12 +94,14 @@ if(isset($_GET['i'])){
             <?php
             for($i = 0; $i <= count($myFiles); $i++){
                 if(!empty($myFiles[$i][1])){
-                    echo '
-                    <div class="item">
-                        <a title="Open" href="'.$myFiles[$i][1].'" target="_blank">'.$myFiles[$i][1].'</a>
-                        <div>'.date("d.m.y H:i:s", filectime($_SERVER['DOCUMENT_ROOT'].$myFiles[$i][1])).'</div>
-                    </div>
-                    ';
+                    if(file_exists($_SERVER['DOCUMENT_ROOT'].$myFiles[$i][1])){
+                        echo '
+                        <div class="item">
+                            <a title="Open" href="'.$myFiles[$i][1].'" target="_blank">'.$myFiles[$i][1].'</a>
+                            <div>'.date("d.m.y H:i:s", filectime($_SERVER['DOCUMENT_ROOT'].$myFiles[$i][1])).'</div>
+                        </div>
+                        ';
+                    }
                 }
             }
             ?>

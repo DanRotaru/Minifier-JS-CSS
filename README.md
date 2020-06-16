@@ -47,6 +47,9 @@ echo $minfied;
 
 ```
 
+## Dashboard example
+You can find dashboard example [https://github.com/DanRotaru/Minifier-JS-CSS/tree/master/minify](https://github.com/DanRotaru/Minifier-JS-CSS/tree/master/minify)
+
 ## Requirements
 * PHP Web Server
 

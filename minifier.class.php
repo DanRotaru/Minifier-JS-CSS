@@ -18,7 +18,6 @@ class Minifier {
         */
 
         if($lang == "js") $url = "https://javascript-minifier.com/raw";
-        else if($lang == "html") $url = "https://html-minifier.com/raw";
         else $url = "https://cssminifier.com/raw";
 
         $postdata = array('http' => array(

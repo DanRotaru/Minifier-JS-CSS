@@ -5,6 +5,9 @@ With this plugin, you can minify you js's and css's via PHP providing input and 
 Also you can minify and merge all your code in one file.
 This scripts are using Andy Chilton API's.
 
+### Dashboard example
+You can find dashboard example [https://github.com/DanRotaru/Minifier-JS-CSS/tree/master/minify](https://github.com/DanRotaru/Minifier-JS-CSS/tree/master/minify)
+
 ## Setup
 ```php
 require "minifier.class.php";
@@ -46,9 +49,6 @@ $minfied = Minifier::get($content, "js");
 echo $minfied;
 
 ```
-
-## Dashboard example
-You can find dashboard example [https://github.com/DanRotaru/Minifier-JS-CSS/tree/master/minify](https://github.com/DanRotaru/Minifier-JS-CSS/tree/master/minify)
 
 ## Requirements
 * PHP Web Server
